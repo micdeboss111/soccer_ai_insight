@@ -25,7 +25,7 @@ BASE_URL = "https://api.football-data.org/v4"
 # AUTH
 # -------------------------
 def _get_fd_token() -> str:
-    token = os.getenv("118011375a3b49e6af4e843bf02e2820_DATA_TOKEN", "").strip()
+    token = os.getenv("118011375a3b49e6af4e843bf02e2820", "").strip()
     if not token:
         raise RuntimeError("Missing FOOTBALL_DATA_TOKEN environment variable.")
     return token
@@ -262,4 +262,5 @@ if "fd_hist" in st.session_state:
     if st.checkbox("Use this dataset for training", value=True):
         df = df[["Date","HomeTeam","AwayTeam","FTHG","FTAG"]].copy()
         st.info("Models will now train on ingested historical data.")
+
 
